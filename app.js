@@ -1,0 +1,1 @@
+document.getElementById("sudoku").innerHTML = "Sudoku";
