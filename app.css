@@ -1,3 +1,80 @@
+.dark-primary-color    { background: #1976D2; }
+.default-primary-color { background: #2196F3; }
+.light-primary-color   { background: #BBDEFB; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #607D8B; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
+body {
+    background: white;
+    margin: 0;
+    font-family: "RobotoRegular", sans-serif;
+    color: #333333;
+    height: 100%
+}
+
+header {
+    position: fixed;
+    background: #2196F3; 
+    color: #fff;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    position: fixed;
+    background: #2196F3; 
+    color: #fff;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+main {
+    background: #eee;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    height: calc(100% - 100px);    
+    width: 100%;
+}
+
 #sudoku {
-    color: black;
+    text-align: center;
+    color: white;
+}
+
+#game {
+    display: table;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+#game .body {
+    display: table-row-group;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+#game .row {
+    display: table-row-group;
+}
+
+#game .cell {
+    width: 40px; 
+    height: 40px;
+    border: 1px solid #ccc;
+	display: table-cell;
+    text-align: center;
+    font-family: sans-serif; 
+    font-size: 20px;
+	padding: 3px 10px;
 }
