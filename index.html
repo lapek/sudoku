@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sudoku</title>
+    <title>Sudoku - for now only generates board</title>
 
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
+
     <header>
-        <h1 id="sudoku"></h1>
+        <h1 id="headline">Sudoku</h1>
     </header>
 
     <main>
-        <div id="game"></div>
-        <button id="gen" onclick="generateSudoku()">gen sudoku</button>
+        <section id="game"></section>
+        <section>
+            <button class="btn" type="button" id="gen" onclick="solveSudoku(sudoku)">gen sudoku</button>
+        </section>
     </main>
 
     <footer>

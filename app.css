@@ -7,47 +7,41 @@
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
 
-body {
-    background: white;
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
     margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: white;
     font-family: "RobotoRegular", sans-serif;
     color: #333333;
-    height: 100%
 }
 
 header {
-    position: fixed;
-    background: #2196F3; 
-    color: #fff;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
+    height: 70px;
+    background: #2196F3;
     border-bottom: 1px solid #ddd;
 }
 
+main {
+    flex: auto;
+}
+
 footer {
-    position: fixed;
-    background: #2196F3; 
-    color: #fff;
-    left: 0;
-    bottom: 0;
-    height: 20px;
-    width: 100%;
+    height: 30px;
+    background: #2196F3;
     border-top: 1px solid #ddd;
+    color: white;
     text-align: center;
 }
 
-main {
-    background: #eee;
-    position: absolute;
-    left: 0;
-    top: 80px;
-    height: calc(100% - 100px);    
-    width: 100%;
-}
-
-#sudoku {
+#headline {
     text-align: center;
     color: white;
 }
@@ -58,10 +52,22 @@ main {
     border: 1px solid #ddd;
 }
 
+.btn {
+    cursor: pointer;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px black;
+    background-color: #1976D2;
+    color: #ecf0f1;
+    margin: 5px;
+    height: 25px;
+}
+
 #game .body {
     display: table-row-group;
     background: white;
-    border: 1px solid #ddd;
 }
 
 #game .row {
@@ -69,12 +75,20 @@ main {
 }
 
 #game .cell {
-    width: 40px; 
+    line-height: 40px;
+    width: 40px;
     height: 40px;
     border: 1px solid #ccc;
-	display: table-cell;
+    display: table-cell;
     text-align: center;
-    font-family: sans-serif; 
+    font-family: sans-serif;
     font-size: 20px;
-	padding: 3px 10px;
+}
+
+#game .right {
+    border-right: 2px solid black;
+}
+
+#game .bottom {
+    border-bottom: 2px solid black;
 }
