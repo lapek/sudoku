@@ -13,22 +13,25 @@
 </head>
 <body>
 
-    <header>
-        <h1 id="headline">Sudoku</h1>
-    </header>
+<header>
+    <h1>Sudoku</h1>
+</header>
 
-    <main>
-        <section id="game"></section>
-        <section>
-            <button class="btn" type="button" id="gen" onclick="solveSudoku(sudoku)">gen sudoku</button>
-        </section>
-    </main>
+<main class="container">
+    <!--<div class="header-height item"></div>-->
+    <div class="item">
+        <div id="game"></div>
+    </div>
+    <div class="item">
+        <button class="btn" type="button" id="gen" onclick="solveSudoku(sudoku)">New Game</button>
+    </div>
+</main>
 
-    <footer>
-        <small>sudoku 2017</small>
-    </footer>
+<footer>
+    <span>sudoku 2017</span>
+</footer>
 
-    <script src="libs/vanilla.js"></script>
-    <script src="app.js"></script>
+<script src="libs/vanilla.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

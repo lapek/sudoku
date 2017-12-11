@@ -9,60 +9,88 @@
 
 html, body {
     height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    color: black;
     background: white;
     font-family: "RobotoRegular", sans-serif;
-    color: #333333;
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
 }
 
 header {
-    height: 70px;
-    background: #2196F3;
-    border-bottom: 1px solid #ddd;
+    background-color: #2196F3;
+    color: #FFF;
+    min-height: 56px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
 }
 
-main {
-    flex: auto;
+.header-height {
+    height: 56px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+}
+
+.item {
+    margin: auto;
 }
 
 footer {
-    height: 30px;
-    background: #2196F3;
-    border-top: 1px solid #ddd;
-    color: white;
+    height: 100px;
+    background-color: #eee;
+    border-top: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    color: black;
     text-align: center;
+    padding-top: 35px;
 }
 
-#headline {
+.btn {
+    text-transform: uppercase;
+    color: black;
+    background-color: #FFF;
     text-align: center;
-    color: white;
+    line-height: 36px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: inherit;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    box-shadow: 0 0 2px rgba(0,0,0,.12), 0 2px 2px rgba(0,0,0,.2);
+    border-radius: 2px;
+    border: none;
+    height: 36px;
+    padding: 0 26px;
+    margin: 6px 0;
+}
+
+.btn:after {
+
+}
+
+.btn:active:after {
+
 }
 
 #game {
     display: table;
     margin: 0 auto;
     border: 1px solid #ddd;
-}
-
-.btn {
-    cursor: pointer;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px black;
-    background-color: #1976D2;
-    color: #ecf0f1;
-    margin: 5px;
-    height: 25px;
 }
 
 #game .body {
