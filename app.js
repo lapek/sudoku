@@ -1,17 +1,17 @@
 'use strict';
 
 const sudokuSeq = "1,2,3,4,5,6,7,8,9";
-var sudoku = new Array(81).fill(0);
+let sudoku = new Array(81).fill(0);
 
 function gameGrid(sudoku) {
-    var i = 0;
-    var grid = document.createElement("div");
+    let i = 0;
+    const grid = document.createElement("div");
     grid.className = "body";
-    for (var r = 0; r < 9; r++) {
-        var row = document.createElement("div");
+    for (let r = 0; r < 9; r++) {
+        const row = document.createElement("div");
         row.className = "row";
-        for (var c = 0; c < 9; c++) {
-            var cell = document.createElement("div");
+        for (let c = 0; c < 9; c++) {
+            const cell = document.createElement("div");
             cell.className = "cell";
             if (c === 2 || c === 5) {
                 cell.className += " right";
@@ -25,7 +25,7 @@ function gameGrid(sudoku) {
         grid.appendChild(row);
     }
 
-    var game = document.getElementById("game");
+    const game = document.getElementById("game");
     while (game.firstChild) {
         game.removeChild(game.firstChild);
     }
@@ -47,7 +47,7 @@ function getSquare(cell) {
 }
 
 function isPossibleRow(sudoku, row, number) {
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         if (sudoku[row * 9 + i] === number) {
             return false;
         }
@@ -56,7 +56,7 @@ function isPossibleRow(sudoku, row, number) {
 }
 
 function isPossibleColumn(sudoku, column, number) {
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         if (sudoku[column + 9 * i] === number) {
             return false;
         }
@@ -65,7 +65,7 @@ function isPossibleColumn(sudoku, column, number) {
 }
 
 function isPossibleSquare(sudoku, square, number) {
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         if (sudoku[Math.floor(square / 3) * 27 + i % 3 + 9 * Math.floor(i / 3) + 3 * (square % 3)] === number) {
             return false;
         }
@@ -78,8 +78,8 @@ function isPossibleNumber(sudoku, cell, number) {
 }
 
 function isCorrectRow(sudoku, row) {
-    var rowTemp = [];
-    for (var i = 0; i < 9; i++) {
+    const rowTemp = [];
+    for (let i = 0; i < 9; i++) {
         rowTemp[i] = sudoku[row * 9 + i];
     }
     rowTemp.sort();
@@ -87,8 +87,8 @@ function isCorrectRow(sudoku, row) {
 }
 
 function isCorrectColumn(sudoku, column) {
-    var colTemp = [];
-    for (var i = 0; i < 9; i++) {
+    const colTemp = [];
+    for (let i = 0; i < 9; i++) {
         colTemp[i] = sudoku[column + i * 9];
     }
     colTemp.sort();
@@ -96,8 +96,8 @@ function isCorrectColumn(sudoku, column) {
 }
 
 function isCorrectSquare(sudoku, square) {
-    var squareTemp = [];
-    for (var i = 0; i < 9; i++) {
+    const squareTemp = [];
+    for (let i = 0; i < 9; i++) {
         squareTemp[i] = sudoku[Math.floor(square / 3) * 27 + i % 3 + 9 * Math.floor(i / 3) + 3 * (square % 3)];
     }
     squareTemp.sort();
@@ -105,7 +105,7 @@ function isCorrectSquare(sudoku, square) {
 }
 
 function isSolved(sudoku) {
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         if (!isCorrectSquare(sudoku, i) || !isCorrectRow(sudoku, i) || !isCorrectColumn(sudoku, i)) {
             return false;
         }
@@ -114,8 +114,8 @@ function isSolved(sudoku) {
 }
 
 function getPossibleValues(sudoku, cell) {
-    var possible = [];
-    for (var i = 1; i <= 9; i++) {
+    const possible = [];
+    for (let i = 1; i <= 9; i++) {
         if (isPossibleNumber(sudoku, cell, i)) {
             possible.push(i);
         }
@@ -124,13 +124,13 @@ function getPossibleValues(sudoku, cell) {
 }
 
 function getRandomPossibleValues(possible, cell) {
-    var randomPicked = Math.floor(Math.random() * possible[cell].length);
+    const randomPicked = Math.floor(Math.random() * possible[cell].length);
     return possible[cell][randomPicked];
 }
 
 function searchForUnique(sudoku) {
-    var possible = [];
-    for (var i = 0; i < 81; i++) {
+    const possible = [];
+    for (let i = 0; i < 81; i++) {
         if (sudoku[i] === 0) {
             possible[i] = [];
             possible[i] = getPossibleValues(sudoku, i);
@@ -143,8 +143,8 @@ function searchForUnique(sudoku) {
 }
 
 function removeFromArray(array, number) {
-    var arr = [];
-    for (var i = 0; i < array.length; i++) {
+    const arr = [];
+    for (let i = 0; i < array.length; i++) {
         if (array[i] !== number) {
             arr.push(array[i]);
         }
@@ -153,10 +153,10 @@ function removeFromArray(array, number) {
 }
 
 function nextRandom(possible) {
-    var max = 9;
-    var minChoices = 0;
-    for (var i = 0; i < 81; i++) {
-        if (possible[i] != undefined) {
+    let max = 9;
+    let minChoices = 0;
+    for (let i = 0; i < 81; i++) {
+        if (possible[i] !== undefined) {
             if ((possible[i].length <= max) && (possible[i].length > 0)) {
                 max = possible[i].length;
                 minChoices = i;
@@ -169,15 +169,15 @@ function nextRandom(possible) {
 function solveSudoku(sudoku) {
     sudoku = new Array(81).fill(0);
 
-    var saved = [];
-    var savedFinal = [];
-    var step;
-    var toTry;
-    var attempt;
+    const saved = [];
+    const savedFinal = [];
+    let step;
+    let toTry;
+    let attempt;
 
     while (!isSolved(sudoku)) {
         step = searchForUnique(sudoku);
-        if (step == false) {
+        if (step === false) {
             step = saved.pop();
             sudoku = savedFinal.pop();
         }
